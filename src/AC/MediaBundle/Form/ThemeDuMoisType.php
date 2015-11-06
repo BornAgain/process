@@ -17,7 +17,7 @@ class ThemeDuMoisType extends AbstractType
         $builder
             ->add('date', 'date', [
                 'widget' => 'single_text',
-                'format' => 'dd/MM/yyyy',
+                'format' => 'MM/dd/yyyy',
                 'attr' => [
                     'class' => 'form-control datepicker date-picker',
                     'data-provide' => 'datepicker',

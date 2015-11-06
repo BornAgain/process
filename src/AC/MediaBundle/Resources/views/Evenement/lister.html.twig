@@ -47,7 +47,7 @@
                             <input type="checkbox" class="tableflat">
                         </td>
                         <td>
-                            {{ entity.date|date('Y-m-d')}}
+                            {{ entity.date|date('d-m-Y')}}
                         </td>
                         <td>
                             <a href="{{ path("ac_media_bundle_evenement_voir",{'id':entity.id})}}">{{ entity.theme}}</a>
@@ -81,7 +81,7 @@
 {% block javascripts %}
 
 
-
+ {{parent()}}
 
 
     <!-- Datatables -->
@@ -107,7 +107,7 @@
                         'aTargets': [0]
                     } //disables sorting for column one
                 ],
-                'iDisplayLength': 12,
+                'iDisplayLength': 10,
                 "sPaginationType": "full_numbers",
                 "dom": 'T<"clear">lfrtip',
                 "tableTools": {

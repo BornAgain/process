@@ -15,18 +15,24 @@ class EvenementController extends Controller {
      * @Route("/ajouter", name="ac_media_bundle_evenement_ajouter")
      */
     public function ajouterAction(\Symfony\Component\HttpFoundation\Request $request) {
-        ini_set('memory_limit', '128M');
+        ini_set('memory_limit', '-1');
+        
         $entity = new \AC\MediaBundle\Entity\Evenement();
         $form = $this->get('form.factory')->create(new \AC\MediaBundle\Form\EvenementType, $entity);
 
         if ($form->handleRequest($request)->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-                        
+
+//            $entity_theme_mois = $this->getDoctrine()
+//                    ->getRepository('ACMediaBundle:ThemeDuMois')
+//                    ->findByMois($entity->getDate()->format('m')); 
             $entity_theme_mois = $this->getDoctrine()
                     ->getRepository('ACMediaBundle:ThemeDuMois')
-                    ->findByMois($entity->getDate()->format('m'));          
-            
+                    ->findBy(array(
+                        'mois'=> $entity->getDate()->format('m'),
+                        'annee'=> $entity->getDate()->format('Y')
+                    ));
             $entity->setThemeMois($entity_theme_mois[0]);
             $em->persist($entity);
             $em->flush();
@@ -52,9 +58,9 @@ class EvenementController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $entity_theme_mois = $this->getDoctrine()
                     ->getRepository('ACMediaBundle:ThemeDuMois')
-                    ->findByMois($entity->getDate()->format('m'));          
-            
-            $entity->setThemeMois($entity_theme_mois[0]);            
+                    ->findByMois($entity->getDate()->format('m'));
+
+            $entity->setThemeMois($entity_theme_mois[0]);
             $em->persist($entity);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');

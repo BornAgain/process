@@ -31,6 +31,13 @@ class ThemeDuMois
      */
     private $mois;
     
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="annee", type="string", length=255, unique=true)
+     */
+    private $annee;
+    
     
     /**
      * @var \DateTime
@@ -125,5 +132,29 @@ class ThemeDuMois
     public function getMois()
     {
         return $this->mois;
+    }
+
+    /**
+     * Set annee
+     *
+     * @param string $annee
+     *
+     * @return ThemeDuMois
+     */
+    public function setAnnee($annee)
+    {
+        $this->annee = $annee;
+
+        return $this;
+    }
+
+    /**
+     * Get annee
+     *
+     * @return string
+     */
+    public function getAnnee()
+    {
+        return $this->annee;
     }
 }

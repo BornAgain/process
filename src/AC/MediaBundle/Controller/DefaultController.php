@@ -9,12 +9,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
+     * @Route("/index.php", name="ac_media_accueil")
+     * @Template()
      */
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render("ACMediaBundle:Default:index.html.twig", array('name' => $name))
+         return array(
+                // ...
+            ); 
         
-        ;
     }
 }

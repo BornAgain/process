@@ -23,10 +23,11 @@ class MediaFixture implements Doctrine\Common\DataFixtures\FixtureInterface {
             $obj->setDate(new \DateTime());
             $obj->setTheme($themeDM);
             $obj->setMois('0'.($key+1));
+            $obj->setAnnee('2015');
             $manager->persist($obj);
             $themeDuMoisObjets[] = $obj;
         }
-
+        
         $orateur = array("Pst Doudou", "Pst Arlette", "Ancienne Laure", "Ancien Cyrille", "Ancien Eli");
         $orateurObjets = array();
 

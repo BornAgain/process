@@ -86,6 +86,20 @@ class ServiteurController extends Controller
         );  
         
     }
+    
+    /**
+     * @Route("/listers", name="ac_media_bundle_serviteur_listers")
+     * @Template()
+     */
+    public function listersAction()
+    {
+         $entities = $this->getDoctrine()->getManager()->getRepository("ACMediaBundle:Serviteur")->findAll();
+
+        return array(
+            'entities' => $entities
+        );  
+        
+    }
 
     /**
      * @Route("/voir/{id}", name="ac_media_bundle_serviteur_voir")
