@@ -86,6 +86,7 @@ class FileController extends Controller {
      * @Route("/download/{id}", name="ac_media_bundle_file_download")
      */
     public function downloadAction(\AC\MediaBundle\Entity\File $file) {
+        ini_set('memory_limit', '-1');
 
         $doc = $this->container->getParameter('app_root_files');
         $doc .= \AC\MediaBundle\Services\EvenementService::generateUrl($file->getEvenement());

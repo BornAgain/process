@@ -23,7 +23,7 @@ class EvenementType extends AbstractType
                 'attr' => [
                     'class' => 'form-control datepicker date-picker',
                     'data-provide' => 'datepicker',
-                    'data-date-format' => 'dd/MM/yyyy']])
+                    'data-date-format' => 'MM/dd/yyyy']])
             
             ->add('choeur')
             ->add('theme')

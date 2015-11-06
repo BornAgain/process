@@ -80,19 +80,42 @@
             <div class="ln_solid"></div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12">
-            <table>
-                {% for file in entity.files %}                                    
-                    <tr>
-                        <td><a href="{{ path("ac_media_bundle_file_download",{'id':file.id})}}">{{ file.name}}</a></td>
-                        <td></td>
-                        <td>
-                            <a href="{{ path("ac_media_bundle_file_supprimer",{'id':file.id})}}"><span class="glyphicon glyphicon-trash"></span></a>
-                        </td>
+            <table id="example" class="table table-striped responsive-utilities jambo_table">
+
+                <thead>
+                    <tr class="headings">
+                       
+                        <th>
+                            Culte MP3
+                        </th>                                        
+
+                        <th>
+                            Supprimer
+                        </th>
                     </tr>
-                {% endfor %}
+                </thead>
+
+                <tbody>
+
+
+
+
+                    {% for file in entity.files %}
+
+                        <tr>
+                            <td><a href="{{ path("ac_media_bundle_file_download",{'id':file.id})}}">{{ file.name}}</a></td>
+                            
+                            <td>
+                                <a href="{{ path("ac_media_bundle_file_supprimer",{'id':file.id})}}"><span class="glyphicon glyphicon-trash"></span></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
             </table>
-            {{ form(form) }}
         </div>
+        {{ form(form) }}
+
     </div>
 
 {% endblock %}

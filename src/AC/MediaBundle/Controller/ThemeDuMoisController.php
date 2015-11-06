@@ -24,6 +24,7 @@ class ThemeDuMoisController extends Controller
         if($form->handleRequest($request)->isValid())
         {
             $entity->setMois($entity->getDate()->format('m'));
+            $entity->setAnnee($entity->getDate()->format('Y'));
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();

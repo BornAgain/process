@@ -12,8 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% block stylesheets %}  
-            <!-- Bootstrap core CSS -->
+        {% block stylesheets %}
             <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('fonts/css/font-awesome.min.css') }}" rel="stylesheet">
             <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
@@ -46,7 +45,7 @@
                     <div class="left_col scroll-view">
 
                         <div class="navbar nav_title" style="border: 0;">
-                            <a href="index.html" class="site_title"><i class="fa fa-home"></i> <span>Ac Casablanca</span></a>
+                            <a href="{{ path("ac_media_accueil") }}" class="site_title"><i class="fa fa-home"></i> <span>Ac Casablanca</span></a>
                         </div>
                         <div class="clearfix"></div>
 
@@ -70,14 +69,10 @@
                             <div class="menu_section">
                                 <h3>General</h3>
                                 <ul class="nav side-menu">
-                                    <li><a><i class="fa fa-home"></i> Page d'accueil <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu" style="display: none">
-                                            <li><a href="index.html">Dashboard</a>
-                                            </li>
-
-                                        </ul>
+                                    <li><a href="{{ path("ac_media_accueil") }}"><i class="fa fa-home"></i> Page d'accueil </a>
+                                        
                                     </li>
-                                    <li><a><i class="fa fa-edit"></i> Gestion Media <span class="fa fa-chevron-down"></span></a>
+                                    <li><a><i class="fa fa-edit"></i> Gestion d'Evénement <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
                                             <li>
                                                 <a tabindex="-1" href="{{ path("ac_media_bundle_evenement_ajouter") }}"><span class="mm-text">Ajouter</span></a>
@@ -88,22 +83,33 @@
 
                                         </ul>
                                     </li>
-                                    <li><a><i class="fa fa-edit"></i> Gestion utilisateur <span class="fa fa-chevron-down"></span></a>
+                                    <li><a><i class="fa fa-edit"></i> Gestion serviteur <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
                                             <li>
-                                                <a tabindex="-1" href="{{ path("ac_media_bundle_evenement_ajouter") }}"><span class="mm-text">Ajouter</span></a>
+                                                <a tabindex="-1" href="{{ path("ac_media_bundle_serviteur_ajouter") }}"><span class="mm-text">Ajouter</span></a>
                                             </li>
                                             <li>
-                                                <a tabindex="-1" href="{{ path("ac_media_bundle_evenement_lister") }}"><span class="mm-text">Lister</span></a>
+                                                <a tabindex="-1" href="{{ path("ac_media_bundle_serviteur_lister") }}"><span class="mm-text">Lister</span></a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-edit"></i> Gestion themes <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li>
+                                                <a tabindex="-1" href="{{ path("ac_media_bundle_theme_du_mois_ajouter") }}"><span class="mm-text">Ajouter</span></a>
+                                            </li>
+                                            <li>
+                                                <a tabindex="-1" href="{{ path("ac_media_bundle_theme_du_mois_lister") }}"><span class="mm-text">Lister</span></a>
                                             </li>
 
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-edit"></i> Administratif <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
-                                            <li><a href="form.html">Backup</a>
+                                            <li><a >Backup</a>
                                             </li>
-                                            <li><a href="form_advanced.html">Migration</a>
+                                            <li><a >Migration</a>
                                             </li>
 
                                         </ul>
@@ -148,98 +154,20 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="images/img.jpg" alt="">John Doe
+                                        <img src="" alt="">{{ app.user.username }}
                                         <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                        <li><a href="javascript:;">  Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span class="badge bg-red pull-right">50%</span>
-                                                <span>Settings</span>
-                                            </a>
-                                        </li>
+                                        
                                         <li>
                                             <a href="javascript:;">Help</a>
                                         </li>
-                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                        <li><a href="{{ path("fos_user_security_logout")}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                         </li>
                                     </ul>
                                 </li>
 
-                                <li role="presentation" class="dropdown">
-                                    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-envelope-o"></i>
-                                        <span class="badge bg-green">6</span>
-                                    </a>
-                                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-                                        <li>
-                                            <a>
-                                                <span class="image">
-                                                    <img src="images/img.jpg" alt="Profile Image" />
-                                                </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where... 
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a>
-                                                <span class="image">
-                                                    <img src="images/img.jpg" alt="Profile Image" />
-                                                </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where... 
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a>
-                                                <span class="image">
-                                                    <img src="images/img.jpg" alt="Profile Image" />
-                                                </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where... 
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a>
-                                                <span class="image">
-                                                    <img src="images/img.jpg" alt="Profile Image" />
-                                                </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where... 
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <div class="text-center">
-                                                <a>
-                                                    <strong>See All Alerts</strong>
-                                                    <i class="fa fa-angle-right"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+                               
 
                             </ul>
                         </nav>
@@ -264,7 +192,7 @@
                         <div class="row">
 
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="x_panel" style="height:600px;">
+                                <div class="x_panel">
                                     {% block body %}
                                         <div class="x_title">
                                             <h2>Plain Page</h2>

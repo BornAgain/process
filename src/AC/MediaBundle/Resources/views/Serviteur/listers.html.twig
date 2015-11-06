@@ -10,6 +10,13 @@
 
 
 {% block body %}
+    <div class="x_title row">
+        
+        <div class="pull-right col-md-6 col-md-6 col-md-12">
+            <a class="btn btn-success text-right pull-right" href="{{ path("ac_media_bundle_serviteur_lister") }}"><i class="fa fa-table"></i> lister</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
 
 
     <div class="x_content">
@@ -20,13 +27,12 @@
                         <input type="checkbox" class="tableflat">
                     </th>
                     <th>
-                        Mois
+                        Nom:
                     </th>
                     <th>
-                        Theme
+                        About:
                     </th>
-
-                                                           
+                                                            
                     <th>
                         Modifier
                     </th>
@@ -42,19 +48,21 @@
                         <td class="a-center ">
                             <input type="checkbox" class="tableflat">
                         </td>
+                        
                         <td>
-                            {{ entity.date|date('F/Y')}}
+                            <a href="{{ path("ac_media_bundle_serviteur_voir",{'id':entity.id})}}">{{ entity.name}}</a>
                         </td>
+
                         <td>
-                            <a href="{{ path("ac_media_bundle_theme_du_mois_voir",{'id':entity.id})}}">{{ entity.theme}}</a>
+                            {{ entity.type}}
                         </td>
-                                                                    
+                                                                     
                         <td>
 
-                            <a href="{{ path("ac_media_bundle_theme_du_mois_modifier",{'id':entity.id}) }}"><button class="btn btn-primary btn-xs" ><i class="fa fa-edit"></i></button></a>
+                            <a href="{{ path("ac_media_bundle_serviteur_modifier",{'id':entity.id}) }}"><button class="btn btn-primary btn-xs" ><i class="fa fa-edit"></i></button></a>
                         </td>
                         <td> 
-                            <a href="{{ path("ac_media_bundle_theme_du_mois_supprimer",{'id':entity.id}) }}"><button class="btn btn-danger btn-xs" ><i class="fa fa-trash-o "></i></button></a>
+                            <a href="{{ path("ac_media_bundle_serviteur_supprimer",{'id':entity.id}) }}"><button class="btn btn-danger btn-xs" ><i class="fa fa-trash-o "></i></button></a>
 
                         </td>
                     </tr>
@@ -70,8 +78,8 @@
 {% endblock %}   
 {% block javascripts %}
 
-{{parent()}}
 
+ {{parent()}}
 
 
     <!-- Datatables -->
