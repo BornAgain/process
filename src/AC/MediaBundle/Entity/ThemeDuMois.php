@@ -27,14 +27,14 @@ class ThemeDuMois
     /**
      * @var string
      *
-     * @ORM\Column(name="mois", type="string", length=255, unique=true)
+     * @ORM\Column(name="mois", type="string", length=255)
      */
     private $mois;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="annee", type="string", length=255, unique=true)
+     * @ORM\Column(name="annee", type="string", length=255)
      */
     private $annee;
     

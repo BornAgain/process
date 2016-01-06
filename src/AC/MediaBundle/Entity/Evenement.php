@@ -58,13 +58,6 @@ class Evenement {
     /**
      * @var string
      *
-     * @ORM\Column(name="choeur", type="string", length=255)
-     */
-    private $choeur;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="theme", type="string", length=255)
      */
     private $theme;

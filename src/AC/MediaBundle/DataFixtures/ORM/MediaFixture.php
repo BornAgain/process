@@ -24,7 +24,7 @@ class MediaFixture implements Doctrine\Common\DataFixtures\FixtureInterface {
             $obj->setTheme($themeDM);
             $obj->setMois('0'.($key+1));
             $obj->setAnnee('2015');
-            $manager->persist($obj);
+            //$manager->persist($obj);
             $themeDuMoisObjets[] = $obj;
         }
         
@@ -36,7 +36,7 @@ class MediaFixture implements Doctrine\Common\DataFixtures\FixtureInterface {
             $obj->setName($ora);
             $obj->setType("orateur");
                     
-            $manager->persist($obj);
+            //$manager->persist($obj);
             $orateurObjets[] = $obj;
         }
         
@@ -48,7 +48,7 @@ class MediaFixture implements Doctrine\Common\DataFixtures\FixtureInterface {
             $obj->setName($cond);
             $obj->setType("conducteur");
                     
-            $manager->persist($obj);
+            //$manager->persist($obj);
             $conducteurObjets[] = $obj;
         }
         

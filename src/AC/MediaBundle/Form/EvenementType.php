@@ -23,9 +23,8 @@ class EvenementType extends AbstractType
                 'attr' => [
                     'class' => 'form-control datepicker date-picker',
                     'data-provide' => 'datepicker',
-                    'data-date-format' => 'MM/dd/yyyy']])
+                    'data-date-format' => 'mm/dd/yyyy']])
             
-            ->add('choeur')
             ->add('theme')
                 ->add('tags')
             ->add('orateur', 'entity', array('class' => 'ACMediaBundle:Serviteur', 
