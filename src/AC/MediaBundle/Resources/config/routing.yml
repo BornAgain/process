@@ -1,0 +1,8 @@
+
+sample:
+    path:     /sample
+    defaults: { _controller: ACMediaBundle:Ajax:sample }
+
+upload_file:
+    path:     /uploadFile
+    defaults: { _controller: ACMediaBundle:Ajax:uploadFile }

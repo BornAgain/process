@@ -8,4 +8,13 @@ ac_media:
     prefix:   /    
 
 fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"    
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+    
+sample:
+    path:     /ajax/sample
+    defaults: { _controller: ACMediaBundle:Ajax:sample }
+
+upload_file:
+    path:     /ajax/uploadFile
+    defaults: { _controller: ACMediaBundle:Ajax:uploadFile }    

@@ -1,0 +1,36 @@
+{% extends "::base.html.twig" %}
+{% block pagetitle %}
+    <div class="title_left">
+        <h2>AcMedia <small>Ajouter Thème du mois</small></h2>
+    </div>
+{% endblock %}
+
+{% block body %}
+    {{ form(form)}}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        $(".sr").keyup(function(){
+        if ($(this).val().length === 5){
+        $.ajax({
+        type: 'get',
+                url: 'http://localhost/ACpmsv2/web/app_dev.php/ajax/sample',
+                beforeSend: function() {
+                    
+                },
+                success: function() {
+                    alert("TEST");
+        });
+        }
+        });
+        });
+    </script>
+
+
+
+{% endblock %}   
